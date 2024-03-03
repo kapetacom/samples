@@ -30,7 +30,7 @@ spec:
   providers:
     - kind: kapeta/resource-type-rabbitmq-publisher:1.1.0
       metadata:
-        name: rabbitmqpublisher
+        name: events
       spec:
         port:
           type: amqp
@@ -50,10 +50,38 @@ spec:
                 required: true
                 global: false
               payload:
-                type: any
+                type: string
                 secret: false
                 required: true
                 global: false
+    - kind: kapeta/resource-type-rest-api:0.1.4
+      metadata:
+        name: main
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          Events::submit:
+            responseType:
+              type: void
+            method: POST
+            path: /events/submit
+            arguments:
+              event:
+                ref: Event
+                transport: BODY
+                argument: event
+                optional: false
+            controllerName: Events
+        source:
+          type: kaplang
+          version: 1.11.2
+          value: |-
+            controller Events('/events') {
+                @POST('/submit')
+                submit( @Body event:Event ):void
+            }
   consumers: []
   target:
     kind: kapeta://kapeta/language-target-nodejs:3.4.2

@@ -54,6 +54,34 @@ spec:
                 secret: false
                 required: true
                 global: false
+    - kind: kapeta/resource-type-rest-api:0.1.4
+      metadata:
+        name: main
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          Events::submit:
+            responseType:
+              type: void
+            method: POST
+            path: /events/submit
+            arguments:
+              event:
+                ref: Event
+                transport: BODY
+                argument: event
+                optional: false
+            controllerName: Events
+        source:
+          type: kaplang
+          version: 1.11.2
+          value: |-
+            controller Events('/events') {
+                @POST('/submit')
+                submit( @Body event:Event ):void
+            }
   consumers: []
   target:
     kind: kapeta/language-target-go:0.3.4

@@ -88,6 +88,15 @@ spec:
         top: 373.88417687211876
       id: 260a8913-f339-482e-9f07-9248916cb962
       name: Gateway
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-api:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1291.730638932411
+        top: 5
+      id: 29c4bd02-5804-4b00-bc66-8e00f2210e63
+      name: RabbitMQ Sample API
   connections:
     - provider:
         resourceName: events
@@ -106,7 +115,7 @@ spec:
       port:
         type: amqp
     - provider:
-        resourceName: rabbitmqpublisher
+        resourceName: events
         blockId: b670b213-1fac-4824-9317-d0c9038f7e44
       consumer:
         resourceName: node
@@ -188,4 +197,82 @@ spec:
       port:
         name: http
         type: web
+    - provider:
+        resourceName: main
+        blockId: 2f84e315-804f-4577-97fe-ebdb71b1260d
+      consumer:
+        resourceName: goMain
+        blockId: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
+      port:
+        name: rest
+        type: rest
+      mapping:
+        Events::submit:
+          targetId: Events::submit
+          type: EXACT
+    - provider:
+        resourceName: main
+        blockId: 8fb71254-ef23-448e-b85f-e50f286c0558
+      consumer:
+        resourceName: javaMain
+        blockId: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
+      port:
+        name: rest
+        type: rest
+      mapping:
+        Events::submit:
+          targetId: Events::submit
+          type: EXACT
+    - provider:
+        resourceName: main
+        blockId: b670b213-1fac-4824-9317-d0c9038f7e44
+      consumer:
+        resourceName: nodeMain
+        blockId: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
+      port:
+        name: rest
+        type: rest
+      mapping:
+        Events::submit:
+          targetId: Events::submit
+          type: EXACT
+    - provider:
+        resourceName: main
+        blockId: b670b213-1fac-4824-9317-d0c9038f7e44
+      consumer:
+        resourceName: node
+        blockId: 29c4bd02-5804-4b00-bc66-8e00f2210e63
+      port:
+        name: rest
+        type: rest
+      mapping:
+        Events::submit:
+          targetId: Events::submit
+          type: EXACT
+    - provider:
+        resourceName: main
+        blockId: 8fb71254-ef23-448e-b85f-e50f286c0558
+      consumer:
+        resourceName: java
+        blockId: 29c4bd02-5804-4b00-bc66-8e00f2210e63
+      port:
+        name: rest
+        type: rest
+      mapping:
+        Events::submit:
+          targetId: Events::submit
+          type: EXACT
+    - provider:
+        resourceName: main
+        blockId: 2f84e315-804f-4577-97fe-ebdb71b1260d
+      consumer:
+        resourceName: go
+        blockId: 29c4bd02-5804-4b00-bc66-8e00f2210e63
+      port:
+        name: rest
+        type: rest
+      mapping:
+        Events::submit:
+          targetId: Events::submit
+          type: EXACT
   configuration: {}

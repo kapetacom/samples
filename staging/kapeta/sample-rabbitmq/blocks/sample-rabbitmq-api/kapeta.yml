@@ -1,8 +1,8 @@
-kind: kapeta/block-type-frontend:0.0.2
+kind: kapeta/block-type-gateway-http:0.3.0
 metadata:
-  name: kapeta/sample-rabbitmq-consumer-react
-  visibility: public
-  title: RabbitMQ Consumer
+  name: kapeta/sample-rabbitmq-api
+  visibility: private
+  title: RabbitMQ Sample API
 spec:
   entities:
     types:
@@ -27,76 +27,11 @@ spec:
         	type: string
         	payload: string
         }
-  providers:
-    - kind: kapeta/resource-type-web-page:0.0.12
-      metadata:
-        name: main
-      spec:
-        port:
-          name: http
-          type: web
-        path: /
+  providers: []
   consumers:
     - kind: kapeta/resource-type-rest-client:0.1.4
       metadata:
-        name: nodeEvents
-      spec:
-        port:
-          name: rest
-          type: rest
-        methods:
-          getAll:
-            responseType:
-              ref: Event[]
-            method: GET
-            path: /events
-            arguments: {}
-        source:
-          type: kapeta-dsl
-          value: |-
-            @GET("/events")
-            getAll():Event[]
-    - kind: kapeta/resource-type-rest-client:0.1.4
-      metadata:
-        name: javaEvents
-      spec:
-        port:
-          name: rest
-          type: rest
-        methods:
-          getAll:
-            responseType:
-              ref: Event[]
-            method: GET
-            path: /events
-            arguments: {}
-        source:
-          type: kapeta-dsl
-          value: |-
-            @GET("/events")
-            getAll():Event[]
-    - kind: kapeta/resource-type-rest-client:0.1.4
-      metadata:
-        name: goEvents
-      spec:
-        port:
-          name: rest
-          type: rest
-        methods:
-          getAll:
-            responseType:
-              ref: Event[]
-            method: GET
-            path: /events
-            arguments: {}
-        source:
-          type: kapeta-dsl
-          value: |-
-            @GET("/events")
-            getAll():Event[]
-    - kind: kapeta/resource-type-rest-client:0.1.4
-      metadata:
-        name: goMain
+        name: node
       spec:
         port:
           name: rest
@@ -124,7 +59,7 @@ spec:
             }
     - kind: kapeta/resource-type-rest-client:0.1.4
       metadata:
-        name: javaMain
+        name: java
       spec:
         port:
           name: rest
@@ -152,7 +87,7 @@ spec:
             }
     - kind: kapeta/resource-type-rest-client:0.1.4
       metadata:
-        name: nodeMain
+        name: go
       spec:
         port:
           name: rest
@@ -178,5 +113,3 @@ spec:
                 @POST('/submit')
                 submit( @Body event:Event ):void
             }
-  target:
-    kind: kapeta/language-target-react-ts:2.2.10

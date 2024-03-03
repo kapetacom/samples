@@ -34,6 +34,12 @@ import { createJavaEventsRouter } from './proxies/rest/JavaEvents-routes';
 
 import { createGoEventsRouter } from './proxies/rest/GoEvents-routes';
 
+import { createGoMainRouter } from './proxies/rest/GoMain-routes';
+
+import { createJavaMainRouter } from './proxies/rest/JavaMain-routes';
+
+import { createNodeMainRouter } from './proxies/rest/NodeMain-routes';
+
 export const createRoutes = async (config: ConfigProvider, opts: ProxyRouteOptions = {}): Promise<Router> => {
     const routes = Router();
     const restApis = Router();
@@ -42,6 +48,12 @@ export const createRoutes = async (config: ConfigProvider, opts: ProxyRouteOptio
     restApis.use(await createJavaEventsRouter(config, opts));
 
     restApis.use(await createGoEventsRouter(config, opts));
+
+    restApis.use(await createGoMainRouter(config, opts));
+
+    restApis.use(await createJavaMainRouter(config, opts));
+
+    restApis.use(await createNodeMainRouter(config, opts));
 
     // Catch all unknown routes and return 418 I'm a teapot
     restApis.all('/*', (req: Request, res: Response, next: NextFunction) => {

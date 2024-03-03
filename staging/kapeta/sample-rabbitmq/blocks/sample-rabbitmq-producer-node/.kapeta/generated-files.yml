@@ -9,107 +9,125 @@ assets:
     mode: create-only
     checksum: a7d346c5d931a138f3d5e409254010d6810e6f01
     permissions: "644"
-    modified: 1709457389721
+    modified: 1709460483919
     merged: false
   - filename: .prettierignore
     mode: create-only
     checksum: f698bf2b2c8d358c1ea7fc251b17ea2aae470a96
     permissions: "644"
-    modified: 1709457389721
+    modified: 1709460483919
     merged: false
   - filename: Dockerfile
     mode: create-only
     checksum: 4b88c03b35c2dfb89f971564ce4251de6714281b
     permissions: "644"
-    modified: 1709457389722
+    modified: 1709460483919
     merged: false
   - filename: README.md
     mode: create-only
     checksum: fd58330797c90f4c8e00cd8a1e908f3927ebe987
     permissions: "644"
-    modified: 1709457389722
+    modified: 1709460483920
     merged: false
   - filename: .devcontainer/devcontainer.json
     mode: merge
     checksum: 8fd9bb62ca05f5902b1009b29caf779e81d004ed
     permissions: "644"
-    modified: 1709457389723
+    modified: 1709460483920
     merged: false
   - filename: src/.generated/entities/Event.ts
     mode: write-always
     checksum: cfcfb7c2c101e554fd4bb1a339ac745b19898bb5
     permissions: "644"
-    modified: 1709457389723
+    modified: 1709460483920
     merged: false
   - filename: .gitignore
     mode: create-only
     checksum: d4c8b777c459dac5320b0a300d5527edcd70cdb0
     permissions: "644"
-    modified: 1709457389723
+    modified: 1709460483920
     merged: false
   - filename: index.ts
     mode: create-only
     checksum: a1a551fc83d4e1166b076d5d01186871d97e21f4
     permissions: "644"
-    modified: 1709457389723
+    modified: 1709460483920
     merged: false
   - filename: kapeta.md
     mode: write-always
-    checksum: 2c4a04a3fb3ec0409ed477ba4e3f29d6aa14ece7
+    checksum: fb4b75772a935fff1807fb4d33cce4306fc4aa54
     permissions: "644"
-    modified: 1709457389724
+    modified: 1709460483921
     merged: false
   - filename: package.json
     mode: merge
-    checksum: ad52dd174b74d45845aff54e4dc0bd1b63bf3498
+    checksum: 8ee2a4d1f6634830dfdbda67a70126f08ff8169c
     permissions: "644"
-    modified: 1709457389724
+    modified: 1709460483921
     merged: false
   - filename: src/.generated/routes.ts
     mode: write-always
-    checksum: b49b03f8845367b87b89d62cab12d0c1c9370248
+    checksum: f2ffde99bb8d2826daf93aa22c8a415e309117bf
     permissions: "644"
-    modified: 1709457389724
+    modified: 1709460483921
     merged: false
   - filename: src/server.ts
     mode: create-only
     checksum: 33fc14f9584592654a12174a7fd92c0b868b0bff
     permissions: "644"
-    modified: 1709457389725
+    modified: 1709460483921
     merged: false
   - filename: scripts/start-dev.cmd
     mode: write-always
     checksum: f5efe6c80b73c4400e29aec36cca020ad46cef53
     permissions: "644"
-    modified: 1709457389725
+    modified: 1709460483922
     merged: false
   - filename: scripts/start-dev.sh
     mode: write-always
     checksum: 9bbf8631624a58e67e9f8110e69651b82d2c1308
     permissions: "755"
-    modified: 1709457389725
+    modified: 1709460483922
     merged: false
   - filename: scripts/start-prod.cmd
     mode: write-always
     checksum: 06ff0f754b28ebc523ef68e34fe6a207ac737c88
     permissions: "644"
-    modified: 1709457389726
+    modified: 1709460483922
     merged: false
   - filename: scripts/start-prod.sh
     mode: write-always
     checksum: ff7c972647cef628b4140248f754144e097a69ac
     permissions: "755"
-    modified: 1709457389726
+    modified: 1709460483922
     merged: false
   - filename: tsconfig.json
     mode: create-only
     checksum: 2214def23bfbf58f3793edd50fee826e28352e3c
     permissions: "644"
-    modified: 1709457389727
+    modified: 1709460483922
     merged: false
-  - filename: src/.generated/queues/rabbitmqpublisher-publisher.ts
+  - filename: src/.generated/queues/events-publisher.ts
     mode: write-always
-    checksum: b1e3a1e144c21ee05851c9ef8cbe905187b30ce7
+    checksum: 449bd7b6c393ade1f1ad35ad86d34c8c77078e7c
     permissions: "644"
-    modified: 1709457389727
+    modified: 1709460483922
+    merged: false
+  - filename: src/.generated/rest/MainEventsRoutes.ts
+    mode: write-always
+    checksum: 90f663bdd8a82780af4d15cf80ff979591987147
+    permissions: "644"
+    modified: 1709460483923
+    merged: false
+  - filename: src/.generated/rest/main-events-routes.ts
+    mode: write-always
+    checksum: 770ef4de053a8634e4c0cbe21b593ad16ec89e8b
+    permissions: "644"
+    modified: 1709460483923
+    merged: false
+  - filename: src/service/MainEventsRouteService.tsx
+    mode: create-only
+    checksum: 3967c67cf68c803dedef35ffa3c2ec8394c34d16
+    permissions: "644"
+    modified: 1709460483923
     merged: false

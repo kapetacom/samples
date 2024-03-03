@@ -105,6 +105,9 @@ The block consumes the following REST APIs:
 * `nodeEvents`
 * `javaEvents`
 * `goEvents`
+* `goMain`
+* `javaMain`
+* `nodeMain`
 
 REST clients for each of these APIs is available both in the browser: `src/browser/.generated/clients` and server: `src/server/.generated/clients` directories
 * [src/browser/.generated/clients](src/browser/.generated/clients)

@@ -12,7 +12,22 @@ In the sub folder structure you'll find the following:
 * ```src/generated/java/com/sample/repositories```: Contains anything related to databases
 * ```src/generated/java/com/sample/dto```: Contains the entities used by the service.
   * These are generated files and should not be edited directly
+* ```src/generated/java/com/sample/rest```: Contains the REST API routes.
+* ```src/generated/java/com/sample/service```: Contains the REST interfaces.
+  * These are generated files and should not be edited directly
 * ```src/main/java/com/sample/service```: Contains the service layer logic. This is where you should add your business logic
+
+## REST API 
+To edit the REST API handlers edit the services found here:
+[src/main/java/com/sample/service](src/main/java/com/sample/service/)
+
+The REST layer itself is generated for you - so your service
+will be called as specified within the REST API definition in Kapeta.
+
+You just need to worry about the logic.
+
+The service files will only be generated if they don't already exist - or if they have not
+changed since the last time they were generated.
 
 
 

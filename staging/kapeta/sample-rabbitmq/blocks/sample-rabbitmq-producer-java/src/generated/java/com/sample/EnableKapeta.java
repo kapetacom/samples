@@ -4,6 +4,7 @@
 package com.sample;
 
 import com.kapeta.spring.annotation.KapetaEnableRabbitMQ;
+import com.kapeta.spring.annotation.KapetaEnableRestResource;
 import com.kapeta.spring.annotation.KapetaSpringApplication;
 import java.lang.annotation.*;
 
@@ -12,6 +13,7 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 @KapetaSpringApplication
+@KapetaEnableRestResource
 @KapetaEnableRabbitMQ
 public @interface EnableKapeta {
 }

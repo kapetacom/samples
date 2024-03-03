@@ -8,5 +8,9 @@ import (
 
 func RegisterRouters(e *server.KapetaServer, cfg kapeta.ConfigProvider) error {
 	var err error
+	err = rest.CreateMainEventsRouter(e, cfg)
+	if err != nil {
+		return err
+	}
 	return nil
 }

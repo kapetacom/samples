@@ -1,7 +1,9 @@
 package main
 
 import (
+	"github.com/kapetacom/samples/rabbitmq/go-producer/generated"
 	kapeta "github.com/kapetacom/sdk-go-config"
+	"github.com/kapetacom/sdk-go-rest-server/server"
 )
 
 func main() {
