@@ -11,7 +11,7 @@ spec:
       version: 1.11.2
       value: ""
   providers:
-    - kind: kapeta/resource-type-web-page:0.0.12
+    - kind: kapeta://kapeta/resource-type-web-page:0.0.2
       metadata:
         name: main
       spec:

@@ -12,7 +12,7 @@ spec:
       value: ""
   providers: []
   consumers:
-    - kind: kapeta/resource-type-web-fragment:0.0.12
+    - kind: kapeta://kapeta/resource-type-web-page:0.0.2
       metadata:
         name: main
       spec:

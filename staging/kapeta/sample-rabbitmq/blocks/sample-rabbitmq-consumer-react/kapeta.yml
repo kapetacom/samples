@@ -28,7 +28,7 @@ spec:
         	payload: string
         }
   providers:
-    - kind: kapeta/resource-type-web-page:0.0.12
+    - kind: kapeta/resource-type-web-page:0.0.2
       metadata:
         name: main
       spec:

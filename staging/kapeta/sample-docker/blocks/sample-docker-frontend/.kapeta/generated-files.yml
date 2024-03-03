@@ -9,11 +9,11 @@ assets:
     mode: create-only
     checksum: 20d8a439b472e0d022e54408fdc823b054447c01
     permissions: "644"
-    modified: 1709414444617
+    modified: 1709461522299
     merged: false
   - filename: kapeta.md
     mode: write-always
     checksum: a78df26751a755af32408caf3404d592aa8fe0aa
     permissions: "644"
-    modified: 1709414444617
+    modified: 1709461522300
     merged: false
