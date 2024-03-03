@@ -70,4 +70,4 @@ spec:
         port:
           type: amqp
   target:
-    kind: kapeta://kapeta/language-target-nodejs:3.4.1
+    kind: kapeta://kapeta/language-target-nodejs:3.4.2

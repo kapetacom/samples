@@ -44,4 +44,4 @@ spec:
             getNext(  ):Result
   consumers: []
   target:
-    kind: kapeta://kapeta/language-target-nodejs:3.4.1
+    kind: kapeta://kapeta/language-target-nodejs:3.4.2
