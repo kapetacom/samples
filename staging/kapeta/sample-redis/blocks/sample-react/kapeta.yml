@@ -27,7 +27,7 @@ spec:
       spec:
         port:
           type: redis
-    - kind: kapeta/resource-type-rest-client:1.0.14
+    - kind: kapeta/resource-type-rest-client:0.1.4
       metadata:
         name: Java
       spec:
@@ -89,7 +89,7 @@ spec:
                 @DELETE('/{key}')
                 delete( @Path key:string ):void
             }
-    - kind: kapeta/resource-type-rest-client:1.0.14
+    - kind: kapeta/resource-type-rest-client:0.1.4
       metadata:
         name: Node
       spec:

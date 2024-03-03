@@ -28,7 +28,7 @@ spec:
         	payload: string
         }
   providers:
-    - kind: kapeta/resource-type-rest-api:1.0.14
+    - kind: kapeta/resource-type-rest-api:0.1.4
       metadata:
         name: goEvents
       spec:

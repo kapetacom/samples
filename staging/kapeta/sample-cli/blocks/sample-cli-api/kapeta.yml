@@ -11,7 +11,7 @@ spec:
       value: ""
   providers: []
   consumers:
-    - kind: kapeta/resource-type-rest-client:1.0.14
+    - kind: kapeta/resource-type-rest-client:0.1.4
       metadata:
         name: sample
       spec:
