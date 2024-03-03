@@ -28,7 +28,7 @@ spec:
             payload:string
         }
   providers:
-    - kind: kapeta/resource-type-rabbitmq-publisher:1.1.0
+    - kind: kapeta://kapeta/resource-type-rabbitmq-publisher:1.2.0
       metadata:
         name: events
       spec:

@@ -9,131 +9,131 @@ assets:
     mode: create-only
     checksum: d3e7e5dec0b8199d041d5cabdc5250a1b25764a9
     permissions: "644"
-    modified: 1709460475007
+    modified: 1709501126346
     merged: false
   - filename: src/generated/java/com/sample/EnableKapeta.java
     mode: write-always
     checksum: a12c76623caffda49a3c23576c80ed3c59bcee12
     permissions: "644"
-    modified: 1709460475008
+    modified: 1709501126347
     merged: false
   - filename: README.md
     mode: create-only
     checksum: abea9c2646948200750945a157d28ab082adaedf
     permissions: "644"
-    modified: 1709460475008
+    modified: 1709501126348
     merged: false
   - filename: src/main/java/com/sample/SampleRabbitmqProducerJavaApplication.java
     mode: write-always
     checksum: 0c62d3d894b8aba8d269e4aa2595fa5d32d3fd57
     permissions: "644"
-    modified: 1709460475008
+    modified: 1709501126349
     merged: false
   - filename: src/main/resources/application.yml
     mode: create-only
     checksum: da248b0d483708f38db1c9921d7d7af82f9c1d32
     permissions: "644"
-    modified: 1709460475008
+    modified: 1709501126350
     merged: false
   - filename: scripts/build.sh
     mode: write-always
     checksum: a600c831308e7720e56b2c7c00927af1f23d75e5
     permissions: "755"
-    modified: 1709460475009
+    modified: 1709501126351
     merged: false
   - filename: .devcontainer/devcontainer.json
     mode: merge
     checksum: 8ce4bcf71ee9d84b172e1fd100c0dc1a146af15f
     permissions: "644"
-    modified: 1709460475009
+    modified: 1709501126351
     merged: false
   - filename: scripts/docker-build.sh
     mode: write-always
     checksum: 96df8c1145f80c7d32bfbe144148dcf0a434baef
     permissions: "755"
-    modified: 1709460475009
+    modified: 1709501126353
     merged: false
   - filename: src/generated/java/com/sample/dto/EventBase.java
     mode: write-always
     checksum: b3a45baddde85610c884dec7a873d7c9cd6f782c
     permissions: "644"
-    modified: 1709460475010
+    modified: 1709501126354
     merged: false
   - filename: src/main/java/com/sample/dto/EventDTO.java
     mode: create-only
     checksum: ffa3cc2dd022c4b1ebb8c2ddb1d31df02846da6b
     permissions: "644"
-    modified: 1709460475010
+    modified: 1709501126355
     merged: false
   - filename: kapeta.md
     mode: write-always
     checksum: cd5cb8a6abe87f9735ddfe434e9a135d539ce829
     permissions: "644"
-    modified: 1709460475010
+    modified: 1709501126356
     merged: false
   - filename: pom.xml
     mode: merge
     checksum: 9be38c6ce4cc189b905b1ad7d90633c0825f086d
     permissions: "644"
-    modified: 1709460475011
+    modified: 1709501126356
     merged: false
   - filename: scripts/start-dev.cmd
     mode: write-always
     checksum: 5d005bd88c946839b56cfb37290960d98f7b623d
     permissions: "644"
-    modified: 1709460475011
+    modified: 1709501126357
     merged: false
   - filename: scripts/start-dev.sh
     mode: write-always
     checksum: 9220b74c188d8819965b3a39bed594a7f8d458d7
     permissions: "755"
-    modified: 1709460475011
+    modified: 1709501126357
     merged: false
   - filename: scripts/start-prod.cmd
     mode: write-always
     checksum: 5d005bd88c946839b56cfb37290960d98f7b623d
     permissions: "644"
-    modified: 1709460475011
+    modified: 1709501126358
     merged: false
   - filename: scripts/start-prod.sh
     mode: write-always
     checksum: 9220b74c188d8819965b3a39bed594a7f8d458d7
     permissions: "755"
-    modified: 1709460475012
+    modified: 1709501126358
     merged: false
   - filename: scripts/test.sh
     mode: write-always
     checksum: a730f332f4f735d51fd9d0ee79c1135b8aa18d95
     permissions: "755"
-    modified: 1709460475012
+    modified: 1709501126358
     merged: false
   - filename: src/generated/java/com/sample/queue/EventsPublisher.java
     mode: write-always
     checksum: 62edbdb6d99bf9d050dd0a0f44bcb83b1b742860
     permissions: "644"
-    modified: 1709460475012
+    modified: 1709501126359
     merged: false
   - filename: src/generated/java/com/sample/queue/EventsPublisherConfig.java
     mode: write-always
     checksum: b0c06bb2079fbca57ab130084e6207bf2726f967
     permissions: "644"
-    modified: 1709460475012
+    modified: 1709501126359
     merged: false
   - filename: src/generated/java/com/sample/rest/MainEventsController.java
     mode: write-always
     checksum: ceb3bdb00e293f7adf66df40007b36d7a533a7fb
     permissions: "644"
-    modified: 1709460475013
+    modified: 1709501126360
     merged: false
   - filename: src/generated/java/com/sample/service/IMainEventsService.java
     mode: create-only
     checksum: 4f44cd8e32edb65167f2d0132fcbac0967585e72
     permissions: "644"
-    modified: 1709460475013
+    modified: 1709501126360
     merged: false
   - filename: src/main/java/com/sample/service/MainEventsService.java
     mode: create-only
     checksum: f4a99283d4361337990364bf227ad99ca1aadf76
     permissions: "644"
-    modified: 1709460475013
+    modified: 1709501126360
     merged: false
