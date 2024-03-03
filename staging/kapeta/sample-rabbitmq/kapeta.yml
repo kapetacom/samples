@@ -15,14 +15,14 @@ spec:
         left: 1184.428956109237
         top: 339.80911348348036
       id: 3f4f36cf-a337-4368-8245-192f8772b021
-      name: RabbitMQ Block
+      name: RabbitMQ
     - block:
         ref: kapeta://kapeta/sample-rabbitmq-producer-node:local
       dimensions:
         height: -1
         width: 150
         left: 667
-        top: 207.5
+        top: 209.01937389952843
       id: b670b213-1fac-4824-9317-d0c9038f7e44
       name: Node Producer
     - block:
@@ -51,7 +51,7 @@ spec:
         left: 2197.545963741673
         top: 346.06595905847763
       id: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
-      name: RabbitMQ Consumer
+      name: Frontend
     - block:
         ref: kapeta://kapeta/sample-rabbitmq-consumer-node:local
       dimensions:
@@ -79,6 +79,15 @@ spec:
         top: 626.9980001674584
       id: 23803d07-2f9e-4a1f-a900-9279119b3e21
       name: Go consumer
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-gw:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 2640.6556326340233
+        top: 373.88417687211876
+      id: 260a8913-f339-482e-9f07-9248916cb962
+      name: Gateway
   connections:
     - provider:
         resourceName: events
@@ -170,4 +179,13 @@ spec:
           targetId: getAll
           type: EXACT
       id: 23803d07-2f9e-4a1f-a900-9279119b3e21__goEvents__PROVIDES-1143e82d-bc71-45c5-b3c7-2a7e4e486414__goEvents__CONSUMES
+    - provider:
+        resourceName: main
+        blockId: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
+      consumer:
+        resourceName: main
+        blockId: 260a8913-f339-482e-9f07-9248916cb962
+      port:
+        name: http
+        type: web
   configuration: {}

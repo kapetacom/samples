@@ -15,7 +15,7 @@ spec:
         left: 588
         top: 152
       id: 97e069f5-bc05-4f21-940a-d0593972eadc
-      name: Redis Node
+      name: Node
     - block:
         ref: kapeta://kapeta/sample-redis-java:local
       dimensions:
@@ -24,16 +24,16 @@ spec:
         left: 598.48740795532
         top: 370.97245853429183
       id: 557ae0d2-b649-490b-b822-31a9a5dab91f
-      name: Redis Java
+      name: Java
     - block:
         ref: kapeta://kapeta/sample-react:local
       dimensions:
         height: -1
         width: 150
         left: 1121.0646005430647
-        top: 203.4218115435516
+        top: 201.4218115435516
       id: b488de6c-070b-45e5-84c0-55397ff38cdb
-      name: Redis React
+      name: Frontend
   connections:
     - provider:
         resourceName: KeyValue

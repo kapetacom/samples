@@ -27,7 +27,15 @@ spec:
         	type: string
         	payload: string
         }
-  providers: []
+  providers:
+    - kind: kapeta/resource-type-web-page:0.0.12
+      metadata:
+        name: main
+      spec:
+        port:
+          name: http
+          type: web
+        path: /
   consumers:
     - kind: kapeta/resource-type-rest-client:0.1.4
       metadata:
