@@ -5,7 +5,23 @@ metadata:
   title: Sample Backend
   description: A simple backend for CLI Sample
 spec:
-  entities: {}
+  entities:
+    types:
+      - type: dto
+        name: Result
+        properties:
+          next:
+            type: integer
+            secret: false
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.2
+      value: |-
+        type Result {
+            next: integer
+        }
   providers:
     - kind: kapeta/resource-type-rest-api:0.1.4
       metadata:
@@ -17,15 +33,16 @@ spec:
         methods:
           getNextValue:
             responseType:
-              type: integer
+              ref: Result
             method: GET
             path: /increment
             arguments: {}
         source:
-          type: kapeta-dsl
+          type: kaplang
+          version: 1.11.2
           value: |-
             @GET('/increment')
-            getNextValue(  ):integer
+            getNextValue(  ):Result
   consumers: []
   target:
     kind: kapeta://kapeta/language-target-nodejs:3.4.1

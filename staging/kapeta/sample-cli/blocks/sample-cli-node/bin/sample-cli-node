@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+process.title = 'sample-cli-node';
+
+require('../dist/index.js');

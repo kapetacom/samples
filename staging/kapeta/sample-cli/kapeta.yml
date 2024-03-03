@@ -40,7 +40,7 @@ spec:
         blockId: 5671d715-d132-4b09-9aae-c2ff2ab9f0f3
       consumer:
         resourceName: sample
-        blockId: 90e7faa2-64c3-4bb7-a553-756c1ac116e2
+        blockId: b7d6038a-ba61-4c79-aa96-76b91508503e
       port:
         name: rest
         type: rest
@@ -53,7 +53,7 @@ spec:
         blockId: 5671d715-d132-4b09-9aae-c2ff2ab9f0f3
       consumer:
         resourceName: sample
-        blockId: b7d6038a-ba61-4c79-aa96-76b91508503e
+        blockId: 90e7faa2-64c3-4bb7-a553-756c1ac116e2
       port:
         name: rest
         type: rest

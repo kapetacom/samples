@@ -17,7 +17,9 @@ export const createSampleRouteService = async (configProvider: ConfigProvider): 
          * HTTP: GET /increment
          */
         getNextValue(req, res): void {
-            res.send(value++);
+            res.send({
+                next: value++,
+            });
         },
     };
 };

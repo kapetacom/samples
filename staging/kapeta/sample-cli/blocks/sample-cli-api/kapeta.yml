@@ -4,11 +4,22 @@ metadata:
   visibility: public
 spec:
   entities:
-    types: []
+    types:
+      - type: dto
+        name: Result
+        properties:
+          next:
+            type: integer
+            secret: false
+            required: true
+            global: false
     source:
       type: kaplang
       version: 1.11.2
-      value: ""
+      value: |-
+        type Result {
+        	next: integer
+        }
   providers: []
   consumers:
     - kind: kapeta/resource-type-rest-client:0.1.4
@@ -21,12 +32,13 @@ spec:
         methods:
           getNextValue:
             responseType:
-              type: integer
+              ref: Result
             method: GET
             path: /increment
             arguments: {}
         source:
-          type: kapeta-dsl
+          type: kaplang
+          version: 1.11.2
           value: |-
             @GET('/increment')
-            getNextValue(  ):integer
+            getNextValue(  ):Result
