@@ -12,8 +12,8 @@ spec:
       dimensions:
         height: -1
         width: 150
-        left: 900
-        top: 205
+        left: 874
+        top: 341
       id: 11b72a67-b645-4825-947d-c428d8a14a06
       name: Desktop
     - block:
@@ -25,6 +25,15 @@ spec:
         top: 229.5
       id: 1c2662ce-eef2-4f52-bb5d-f5b50559c921
       name: Backend
+    - block:
+        ref: kapeta://kapeta/sample-desktop-gw:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 870
+        top: 39.75
+      id: f300a127-7972-42fc-9076-9fd35511ffbd
+      name: Gateway
   connections:
     - provider:
         resourceName: test
@@ -32,6 +41,19 @@ spec:
       consumer:
         resourceName: test
         blockId: 11b72a67-b645-4825-947d-c428d8a14a06
+      port:
+        name: rest
+        type: rest
+      mapping:
+        getNext:
+          targetId: getNext
+          type: EXACT
+    - provider:
+        resourceName: test
+        blockId: 1c2662ce-eef2-4f52-bb5d-f5b50559c921
+      consumer:
+        resourceName: test
+        blockId: f300a127-7972-42fc-9076-9fd35511ffbd
       port:
         name: rest
         type: rest
