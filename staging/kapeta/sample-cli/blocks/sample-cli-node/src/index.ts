@@ -1,21 +1,17 @@
 import { program } from 'commander';
 import packageData from '../package.json';
-import {runApp} from "@kapeta/sdk-config";
-import {createSampleClient} from "generated:clients/SampleClient";
-import * as Path from "path";
+import { initRestClients } from 'generated:clients';
+
+const { sampleClient } = initRestClients();
 
 program.name('sample-cli-node').version(packageData.version);
-
 
 program
     .command('increment')
     .description('Call backend to get the next value.')
-    .action(() => {
-        runApp(async (config) => {
-            const client = await createSampleClient(config)
-            const nextValue = await client.getNextValue()
-            console.log(`Next value: ${nextValue?.next}`)
-        }, Path.resolve(__dirname, '..'));
+    .action(async () => {
+        const nextValue = await sampleClient.getNextValue();
+        console.log(`Next value: ${nextValue?.next}`);
     });
 
 // Catch all command to show a custom message for unknown commands
