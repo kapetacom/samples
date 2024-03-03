@@ -5,6 +5,7 @@ on:
       - master
     paths:
       - 'staging/kapeta/sample-artifacts/**'
+      - '.github/workflows/staging-artifacts.yml'
 jobs:
   staging:
     name: Staging
