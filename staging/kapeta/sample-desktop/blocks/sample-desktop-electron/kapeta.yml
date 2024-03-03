@@ -45,4 +45,4 @@ spec:
             @GET('/increment')
             getNext(  ):Result
   target:
-    kind: kapeta/language-target-react-ts:2.2.10
+    kind: kapeta://kapeta/language-target-react-ts:2.2.11

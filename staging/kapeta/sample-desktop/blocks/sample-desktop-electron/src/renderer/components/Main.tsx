@@ -22,7 +22,7 @@ export const Main = () => {
                     })
                 }}
             >
-                Call the main process
+                Call backend
             </button>
         </div>
     );

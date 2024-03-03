@@ -17,5 +17,7 @@ You can make this function async if you need to do any async initialization.
 */
 
 export const createServer = (config: ConfigProvider): Server => {
-    return new Server(config);
+    const server = new Server(config);
+
+    return server;
 };
