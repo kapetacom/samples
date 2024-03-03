@@ -10,13 +10,14 @@ import { SampleRoutes } from 'generated:rest/SampleRoutes';
  * @param configProvider The configuration provider to use.
  */
 export const createSampleRouteService = async (configProvider: ConfigProvider): Promise<SampleRoutes> => {
+    let value = 0;
     return {
         /**
          *
          * HTTP: GET /increment
          */
         getNextValue(req, res): void {
-            res.sendError('REST resource method not implemented: "getNextValue"', 501);
+            res.send(value++);
         },
     };
 };

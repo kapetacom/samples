@@ -28,4 +28,4 @@ spec:
             getNextValue(  ):integer
   consumers: []
   target:
-    kind: kapeta/language-target-nodejs:3.4.0
+    kind: kapeta://kapeta/language-target-nodejs:3.4.1
