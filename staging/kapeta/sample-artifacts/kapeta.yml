@@ -2,7 +2,7 @@ kind: core/plan
 metadata:
   name: kapeta/sample-artifacts
   visibility: private
-  description: Shows how to use artifact registries
+  description: Shows how to use artifact registries with the supported languages
   structure: mono
   title: Artifact Sample
 spec:
@@ -45,3 +45,4 @@ spec:
         Registries::getDockerSetup:
           targetId: Registries::getDockerSetup
           type: EXACT
+  configuration: {}
