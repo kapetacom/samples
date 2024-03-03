@@ -1,7 +1,7 @@
 kind: core/plan
 metadata:
   name: kapeta/sample-rabbitmq
-  visibility: private
+  visibility: public
   description: Shows how to use RabbitMQ
   structure: mono
   title: RabbitMQ Sample

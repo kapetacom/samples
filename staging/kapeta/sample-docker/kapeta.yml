@@ -1,7 +1,7 @@
 kind: core/plan
 metadata:
   name: kapeta/sample-docker
-  visibility: private
+  visibility: public
   description: Shows how to use the Docker language target
   structure: mono
   title: Docker Sample

@@ -1,7 +1,7 @@
-kind: kapeta/block-type-gateway-http:2.0.6
+kind: kapeta/block-type-gateway-http:0.3.0
 metadata:
   name: kapeta/sample-cli-api
-  visibility: private
+  visibility: public
 spec:
   entities:
     types: []

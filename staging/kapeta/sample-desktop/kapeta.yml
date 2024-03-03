@@ -1,7 +1,7 @@
 kind: core/plan
 metadata:
   name: kapeta/sample-desktop
-  visibility: private
+  visibility: public
   description: Shows how to use a desktop block
   structure: mono
   title: Desktop Sample

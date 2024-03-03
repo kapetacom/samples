@@ -1,7 +1,7 @@
 kind: kapeta/block-type-cli:0.0.7
 metadata:
   name: kapeta/sample-cli-node
-  visibility: private
+  visibility: public
   title: Node CLI
   description: Shows a CLI in Node
 spec:

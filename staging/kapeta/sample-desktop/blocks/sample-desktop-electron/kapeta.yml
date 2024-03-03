@@ -1,7 +1,7 @@
 kind: kapeta/block-type-desktop:0.1.2
 metadata:
   name: kapeta/sample-desktop-electron
-  visibility: private
+  visibility: public
   title: Electron Desktop Sample
   description: Shows how to build a desktop app with Electron
 spec:

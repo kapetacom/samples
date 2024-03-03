@@ -1,7 +1,7 @@
 kind: kapeta/block-type-rabbitmq:1.1.0
 metadata:
   name: kapeta/sample-rabbitmq-block
-  visibility: private
+  visibility: public
   title: RabbitMQ Block
   description: Part of the RabbitMQ sample
 spec:

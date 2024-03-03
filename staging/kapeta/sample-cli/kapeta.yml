@@ -1,7 +1,7 @@
 kind: core/plan
 metadata:
   name: kapeta/sample-cli
-  visibility: private
+  visibility: public
   description: Shows an example of a command line application
   structure: mono
   title: CLI Samples

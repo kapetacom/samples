@@ -1,7 +1,7 @@
 kind: kapeta/block-type-service:1.3.5
 metadata:
   name: kapeta/sample-rabbitmq-consumer-java
-  visibility: private
+  visibility: public
   title: Java Consumer
 spec:
   entities:

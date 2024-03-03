@@ -1,7 +1,7 @@
 kind: kapeta/block-type-service:1.3.5
 metadata:
   name: kapeta/sample-artifact-node
-  visibility: private
+  visibility: public
   title: Node Artifacts
   description: Shows how to use NPM, Docker and Maven registries from Node
 spec:
