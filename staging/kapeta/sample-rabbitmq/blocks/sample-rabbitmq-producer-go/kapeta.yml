@@ -1,0 +1,61 @@
+kind: kapeta/block-type-service:1.3.5
+metadata:
+  name: kapeta/sample-rabbitmq-producer-go
+  visibility: private
+  title: Go Producer
+spec:
+  entities:
+    types:
+      - type: dto
+        name: Event
+        properties:
+          type:
+            type: string
+            secret: false
+            required: true
+            global: false
+          payload:
+            type: string
+            secret: false
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.2
+      value: |-
+        type Event {
+            type:string
+            payload:string
+        }
+  providers:
+    - kind: kapeta/resource-type-rabbitmq-publisher:1.1.0
+      metadata:
+        name: events
+      spec:
+        port:
+          type: amqp
+        routeKeys:
+          data: []
+        headers:
+          data: []
+        payloadType:
+          type: Event
+          structure:
+            type: dto
+            name: Event
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+              payload:
+                type: any
+                secret: false
+                required: true
+                global: false
+  consumers: []
+  target:
+    kind: kapeta/language-target-go:0.3.4
+    options:
+      basePackage: github.com/kapetacom/samples/rabbitmq/go-producer

@@ -1,0 +1,78 @@
+kind: kapeta/block-type-service:1.3.5
+metadata:
+  name: kapeta/sample-rabbitmq-consumer-java
+  visibility: private
+  title: Java Consumer
+spec:
+  entities:
+    types:
+      - type: dto
+        name: Event
+        properties:
+          type:
+            type: string
+            secret: false
+            required: true
+            global: false
+          payload:
+            type: string
+            secret: false
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.2
+      value: |-
+        type Event {
+        	type: string
+        	payload: string
+        }
+  providers:
+    - kind: kapeta/resource-type-rest-api:1.0.14
+      metadata:
+        name: javaEvents
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          getAll:
+            responseType:
+              ref: Event[]
+            method: GET
+            path: /events
+            arguments: {}
+        source:
+          type: kapeta-dsl
+          value: |-
+            @GET("/events")
+            getAll():Event[]
+  consumers:
+    - kind: kapeta/resource-type-rabbitmq-subscriber:1.1.0
+      metadata:
+        name: events
+      spec:
+        payloadType:
+          type: Event
+          structure:
+            type: dto
+            name: Event
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+              payload:
+                type: any
+                secret: false
+                required: true
+                global: false
+        port:
+          type: amqp
+  target:
+    kind: kapeta/language-target-java-spring-boot:1.1.8
+    options:
+      basePackage: com.sample
+      groupId: com.sample
+      artifactId: java-consumer

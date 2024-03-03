@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: kapeta/sample-redis-java

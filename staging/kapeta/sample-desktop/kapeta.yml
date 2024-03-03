@@ -1,0 +1,41 @@
+kind: core/plan
+metadata:
+  name: kapeta/sample-desktop
+  visibility: private
+  description: Shows how to use a desktop block
+  structure: mono
+  title: Desktop Sample
+spec:
+  blocks:
+    - block:
+        ref: kapeta://kapeta/sample-desktop-electron:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 900
+        top: 205
+      id: 11b72a67-b645-4825-947d-c428d8a14a06
+      name: Electron Sample
+    - block:
+        ref: kapeta://kapeta/sample-desktop-backend:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 440
+        top: 229.5
+      id: 1c2662ce-eef2-4f52-bb5d-f5b50559c921
+      name: Desktop Backend
+  connections:
+    - provider:
+        resourceName: test
+        blockId: 1c2662ce-eef2-4f52-bb5d-f5b50559c921
+      consumer:
+        resourceName: test
+        blockId: 11b72a67-b645-4825-947d-c428d8a14a06
+      port:
+        name: rest
+        type: rest
+      mapping:
+        getNext:
+          targetId: getNext
+          type: EXACT

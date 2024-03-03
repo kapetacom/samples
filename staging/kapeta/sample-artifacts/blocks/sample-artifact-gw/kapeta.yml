@@ -1,0 +1,56 @@
+kind: kapeta/block-type-gateway-http:2.0.6
+metadata:
+  name: kapeta/sample-artifact-gw
+  visibility: private
+  title: Artifacts Gateway Sample
+spec:
+  entities:
+    types: []
+    source:
+      type: kaplang
+      version: 1.11.2
+      value: ""
+  providers: []
+  consumers:
+    - kind: kapeta/resource-type-rest-client:1.0.14
+      metadata:
+        name: registries
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          Registries::getMavenSetup:
+            responseType:
+              type: string
+            method: GET
+            path: /registries/maven/setup
+            arguments: {}
+            controllerName: Registries
+          Registries::getNPMSetup:
+            responseType:
+              type: string
+            method: GET
+            path: /registries/npm/setup
+            arguments: {}
+            controllerName: Registries
+          Registries::getDockerSetup:
+            responseType:
+              type: string
+            method: GET
+            path: /registries/docker/setup
+            arguments: {}
+            controllerName: Registries
+        source:
+          type: kapeta-dsl
+          value: |
+            controller Registries('/registries') {
+                @GET('/docker/setup')
+                getDockerSetup(  ):string
+
+                @GET('/npm/setup')
+                getNPMSetup(  ):string
+
+                @GET('/maven/setup')
+                getMavenSetup(  ):string
+            }

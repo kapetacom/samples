@@ -1,0 +1,47 @@
+kind: core/plan
+metadata:
+  name: kapeta/sample-artifacts
+  visibility: private
+  description: Shows how to use artifact registries
+  structure: mono
+  title: Artifact Sample
+spec:
+  blocks:
+    - block:
+        ref: kapeta://kapeta/sample-artifact-node:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 603
+        top: 320
+      id: 33f9efe2-1191-4664-84c2-db212348d24a
+      name: Artifacts
+    - block:
+        ref: kapeta://kapeta/sample-artifact-gw:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1036
+        top: 350.5
+      id: 47a3916a-75d2-47ed-9545-2477a1f63661
+      name: Gateway
+  connections:
+    - provider:
+        resourceName: registries
+        blockId: 33f9efe2-1191-4664-84c2-db212348d24a
+      consumer:
+        resourceName: registries
+        blockId: 47a3916a-75d2-47ed-9545-2477a1f63661
+      port:
+        name: rest
+        type: rest
+      mapping:
+        Registries::getMavenSetup:
+          targetId: Registries::getMavenSetup
+          type: EXACT
+        Registries::getNPMSetup:
+          targetId: Registries::getNPMSetup
+          type: EXACT
+        Registries::getDockerSetup:
+          targetId: Registries::getDockerSetup
+          type: EXACT

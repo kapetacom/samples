@@ -1,0 +1,173 @@
+kind: core/plan
+metadata:
+  name: kapeta/sample-rabbitmq
+  visibility: private
+  description: Shows how to use RabbitMQ
+  structure: mono
+  title: RabbitMQ Sample
+spec:
+  blocks:
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-block:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1184.428956109237
+        top: 339.80911348348036
+      id: 3f4f36cf-a337-4368-8245-192f8772b021
+      name: RabbitMQ Block
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-producer-node:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 667
+        top: 207.5
+      id: b670b213-1fac-4824-9317-d0c9038f7e44
+      name: Node Producer
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-producer-java:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 668.5
+        top: 409.25
+      id: 8fb71254-ef23-448e-b85f-e50f286c0558
+      name: Java Producer
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-producer-go:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 666.5
+        top: 620.875
+      id: 2f84e315-804f-4577-97fe-ebdb71b1260d
+      name: Go Producer
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-consumer-react:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 2197.545963741673
+        top: 346.06595905847763
+      id: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
+      name: RabbitMQ Consumer
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-consumer-node:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1668.973895068438
+        top: 161.44403897509488
+      id: fa66779f-b4e1-4a0a-b40f-2169d7dd0b58
+      name: Node Consumer
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-consumer-java:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1675.0042257878972
+        top: 402.34769240337005
+      id: 5b71372d-cb7f-4fcd-bfc2-e90783de058c
+      name: Java Consumer
+    - block:
+        ref: kapeta://kapeta/sample-rabbitmq-consumer-go:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1686.5725246831714
+        top: 626.9980001674584
+      id: 23803d07-2f9e-4a1f-a900-9279119b3e21
+      name: Go consumer
+  connections:
+    - provider:
+        resourceName: events
+        blockId: 2f84e315-804f-4577-97fe-ebdb71b1260d
+      consumer:
+        resourceName: go
+        blockId: 3f4f36cf-a337-4368-8245-192f8772b021
+      port:
+        type: amqp
+    - provider:
+        resourceName: events
+        blockId: 8fb71254-ef23-448e-b85f-e50f286c0558
+      consumer:
+        resourceName: java
+        blockId: 3f4f36cf-a337-4368-8245-192f8772b021
+      port:
+        type: amqp
+    - provider:
+        resourceName: rabbitmqpublisher
+        blockId: b670b213-1fac-4824-9317-d0c9038f7e44
+      consumer:
+        resourceName: node
+        blockId: 3f4f36cf-a337-4368-8245-192f8772b021
+      port:
+        type: amqp
+    - provider:
+        resourceName: events
+        blockId: 3f4f36cf-a337-4368-8245-192f8772b021
+      consumer:
+        resourceName: events
+        blockId: fa66779f-b4e1-4a0a-b40f-2169d7dd0b58
+      port:
+        type: amqp
+    - provider:
+        resourceName: events
+        blockId: 3f4f36cf-a337-4368-8245-192f8772b021
+      consumer:
+        resourceName: events
+        blockId: 5b71372d-cb7f-4fcd-bfc2-e90783de058c
+      port:
+        type: amqp
+    - provider:
+        resourceName: events
+        blockId: 3f4f36cf-a337-4368-8245-192f8772b021
+      consumer:
+        resourceName: events
+        blockId: 23803d07-2f9e-4a1f-a900-9279119b3e21
+      port:
+        type: amqp
+    - provider:
+        resourceName: nodeEvents
+        blockId: fa66779f-b4e1-4a0a-b40f-2169d7dd0b58
+      consumer:
+        resourceName: nodeEvents
+        blockId: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
+      port:
+        name: rest
+        type: rest
+      mapping:
+        getAll:
+          targetId: getAll
+          type: EXACT
+      id: fa66779f-b4e1-4a0a-b40f-2169d7dd0b58__nodeEvents__PROVIDES-1143e82d-bc71-45c5-b3c7-2a7e4e486414__nodeEvents__CONSUMES
+    - provider:
+        resourceName: javaEvents
+        blockId: 5b71372d-cb7f-4fcd-bfc2-e90783de058c
+      consumer:
+        resourceName: javaEvents
+        blockId: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
+      port:
+        name: rest
+        type: rest
+      mapping:
+        getAll:
+          targetId: getAll
+          type: EXACT
+      id: 5b71372d-cb7f-4fcd-bfc2-e90783de058c__javaEvents__PROVIDES-1143e82d-bc71-45c5-b3c7-2a7e4e486414__javaEvents__CONSUMES
+    - provider:
+        resourceName: goEvents
+        blockId: 23803d07-2f9e-4a1f-a900-9279119b3e21
+      consumer:
+        resourceName: goEvents
+        blockId: 1143e82d-bc71-45c5-b3c7-2a7e4e486414
+      port:
+        name: rest
+        type: rest
+      mapping:
+        getAll:
+          targetId: getAll
+          type: EXACT
+      id: 23803d07-2f9e-4a1f-a900-9279119b3e21__goEvents__PROVIDES-1143e82d-bc71-45c5-b3c7-2a7e4e486414__goEvents__CONSUMES
+  configuration: {}

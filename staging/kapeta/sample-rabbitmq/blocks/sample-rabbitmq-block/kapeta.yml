@@ -1,0 +1,140 @@
+kind: kapeta/block-type-rabbitmq:1.1.0
+metadata:
+  name: kapeta/sample-rabbitmq-block
+  visibility: private
+  title: RabbitMQ Block
+  description: Part of the RabbitMQ sample
+spec:
+  entities:
+    types:
+      - type: dto
+        name: Event
+        properties:
+          type:
+            type: string
+            secret: false
+            required: true
+            global: false
+          payload:
+            type: string
+            secret: false
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.2
+      value: |-
+        type Event {
+        	type: string
+        	payload: string
+        }
+  providers:
+    - kind: kapeta/resource-type-rabbitmq-queue:1.1.0
+      metadata:
+        name: events
+      spec:
+        port:
+          type: amqp
+        payloadType:
+          type: Event
+          structure:
+            type: dto
+            name: Event
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+              payload:
+                type: any
+                secret: false
+                required: true
+                global: false
+  consumers:
+    - kind: kapeta/resource-type-rabbitmq-exchange:1.1.0
+      metadata:
+        name: go
+      spec:
+        payloadType:
+          type: Event
+          structure:
+            type: dto
+            name: Event
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+              payload:
+                type: any
+                secret: false
+                required: true
+                global: false
+        port:
+          type: amqp
+        exchangeType: fanout
+    - kind: kapeta/resource-type-rabbitmq-exchange:1.1.0
+      metadata:
+        name: java
+      spec:
+        payloadType:
+          type: Event
+          structure:
+            type: dto
+            name: Event
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+              payload:
+                type: any
+                secret: false
+                required: true
+                global: false
+        port:
+          type: amqp
+        exchangeType: fanout
+    - kind: kapeta/resource-type-rabbitmq-exchange:1.1.0
+      metadata:
+        name: node
+      spec:
+        payloadType:
+          type: Event
+          structure:
+            type: dto
+            name: Event
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+              payload:
+                type: any
+                secret: false
+                required: true
+                global: false
+        port:
+          type: amqp
+        exchangeType: fanout
+  bindings:
+    exchanges:
+      - exchange: go
+        bindings:
+          - name: events
+            type: queue
+            routing: ""
+      - exchange: java
+        bindings:
+          - name: events
+            type: queue
+            routing: ""
+      - exchange: node
+        bindings:
+          - name: events
+            type: queue
+            routing: ""

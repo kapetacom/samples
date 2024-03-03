@@ -1,0 +1,80 @@
+kind: kapeta/block-type-service:1.3.5
+metadata:
+  name: kapeta/sample-redis-node
+  visibility: private
+  title: Redis Backend
+  description: Shows how to use Redis from Node
+spec:
+  entities: {}
+  providers:
+    - kind: kapeta/resource-type-rest-api:1.0.14
+      metadata:
+        name: KeyValue
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          KeyValue::delete:
+            responseType:
+              type: void
+            method: DELETE
+            path: /kv/{key}
+            arguments:
+              key:
+                type: string
+                transport: PATH
+                argument: key
+                optional: false
+            controllerName: KeyValue
+          KeyValue::create:
+            responseType:
+              type: void
+            method: POST
+            path: /kv/{key}
+            arguments:
+              key:
+                type: string
+                transport: PATH
+                argument: key
+                optional: false
+              value:
+                type: string
+                transport: BODY
+                argument: value
+                optional: false
+            controllerName: KeyValue
+          KeyValue::get:
+            responseType:
+              type: string
+            method: GET
+            path: /kv/{key}
+            arguments:
+              key:
+                type: string
+                transport: PATH
+                argument: key
+                optional: false
+            controllerName: KeyValue
+        source:
+          type: kapeta-dsl
+          value: |-
+            controller KeyValue('/kv') {
+                @GET('/{key}')
+                get( @Path key:string ):string
+
+                @POST('/{key}')
+                create( @Path key:string, @Body value:string ):void
+
+                @DELETE('/{key}')
+                delete( @Path key:string ):void
+            }
+  consumers:
+    - kind: kapeta/resource-type-redis:0.0.1
+      metadata:
+        name: redis
+      spec:
+        port:
+          type: redis
+  target:
+    kind: kapeta/language-target-nodejs:3.4.0

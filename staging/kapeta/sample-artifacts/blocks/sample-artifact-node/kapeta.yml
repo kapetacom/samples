@@ -1,0 +1,72 @@
+kind: kapeta/block-type-service:1.3.5
+metadata:
+  name: kapeta/sample-artifact-node
+  visibility: private
+  title: Node Artifacts
+  description: Shows how to use NPM, Docker and Maven registries from Node
+spec:
+  entities: {}
+  providers:
+    - kind: kapeta/resource-type-rest-api:1.0.14
+      metadata:
+        name: registries
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          Registries::getMavenSetup:
+            responseType:
+              type: string
+            method: GET
+            path: /registries/maven/setup
+            arguments: {}
+            controllerName: Registries
+          Registries::getNPMSetup:
+            responseType:
+              type: string
+            method: GET
+            path: /registries/npm/setup
+            arguments: {}
+            controllerName: Registries
+          Registries::getDockerSetup:
+            responseType:
+              type: string
+            method: GET
+            path: /registries/docker/setup
+            arguments: {}
+            controllerName: Registries
+        source:
+          type: kapeta-dsl
+          value: |
+            controller Registries('/registries') {
+                @GET('/docker/setup')
+                getDockerSetup(  ):string
+
+                @GET('/npm/setup')
+                getNPMSetup(  ):string
+
+                @GET('/maven/setup')
+                getMavenSetup(  ):string
+            }
+  consumers:
+    - kind: kapeta/resource-type-npm-registry:0.0.1
+      metadata:
+        name: npm
+      spec:
+        port:
+          type: http
+    - kind: kapeta/resource-type-maven-registry:0.0.1
+      metadata:
+        name: mvn
+      spec:
+        port:
+          type: http
+    - kind: kapeta/resource-type-docker-registry:0.0.1
+      metadata:
+        name: docker
+      spec:
+        port:
+          type: http
+  target:
+    kind: kapeta://kapeta/language-target-nodejs:3.4.1

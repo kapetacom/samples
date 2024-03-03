@@ -1,0 +1,38 @@
+kind: core/plan
+metadata:
+  name: kapeta/sample-docker
+  visibility: private
+  description: Shows how to use the Docker language target
+  structure: mono
+  title: Docker Sample
+spec:
+  blocks:
+    - block:
+        ref: kapeta://kapeta/sample-docker-backend:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 258
+        top: 202
+      id: 6a51ee89-2157-458a-9be3-18cda56ceffb
+      name: Docker Backend
+    - block:
+        ref: kapeta://kapeta/sample-docker-frontend:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 778.1528490859314
+        top: 208.416591294023
+      id: b33afc56-97c5-4e93-b2ac-9a46e44e1468
+      name: Docker Frontend Sample
+  connections:
+    - provider:
+        resourceName: restapi
+        blockId: 6a51ee89-2157-458a-9be3-18cda56ceffb
+      consumer:
+        resourceName: restapi
+        blockId: b33afc56-97c5-4e93-b2ac-9a46e44e1468
+      port:
+        name: rest
+        type: rest
+      mapping: {}

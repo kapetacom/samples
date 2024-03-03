@@ -1,0 +1,63 @@
+kind: core/plan
+metadata:
+  name: kapeta/sample-cli
+  visibility: private
+  description: Shows an example of a command line application
+  structure: mono
+  title: CLI Samples
+spec:
+  blocks:
+    - block:
+        ref: kapeta://kapeta/sample-cli-node:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 894
+        top: 335
+      id: 90e7faa2-64c3-4bb7-a553-756c1ac116e2
+      name: Node CLI
+    - block:
+        ref: kapeta://kapeta/sample-cli-backend:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 458
+        top: 216
+      id: 5671d715-d132-4b09-9aae-c2ff2ab9f0f3
+      name: Sample Backend
+    - block:
+        ref: kapeta://kapeta/sample-cli-api:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 801.5
+        top: 75
+      id: b7d6038a-ba61-4c79-aa96-76b91508503e
+      name: sample-cli-api
+  connections:
+    - provider:
+        resourceName: sample
+        blockId: 5671d715-d132-4b09-9aae-c2ff2ab9f0f3
+      consumer:
+        resourceName: sample
+        blockId: 90e7faa2-64c3-4bb7-a553-756c1ac116e2
+      port:
+        name: rest
+        type: rest
+      mapping:
+        getNextValue:
+          targetId: getNextValue
+          type: EXACT
+    - provider:
+        resourceName: sample
+        blockId: 5671d715-d132-4b09-9aae-c2ff2ab9f0f3
+      consumer:
+        resourceName: sample
+        blockId: b7d6038a-ba61-4c79-aa96-76b91508503e
+      port:
+        name: rest
+        type: rest
+      mapping:
+        getNextValue:
+          targetId: getNextValue
+          type: EXACT

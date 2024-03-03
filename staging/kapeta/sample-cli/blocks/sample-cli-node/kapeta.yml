@@ -1,0 +1,36 @@
+kind: kapeta/block-type-cli:0.0.7
+metadata:
+  name: kapeta/sample-cli-node
+  visibility: private
+  title: Node CLI
+  description: Shows a CLI in Node
+spec:
+  entities:
+    types: []
+    source:
+      type: kaplang
+      version: 1.11.2
+      value: ""
+  providers: []
+  consumers:
+    - kind: kapeta/resource-type-rest-client:1.0.14
+      metadata:
+        name: sample
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          getNextValue:
+            responseType:
+              type: integer
+            method: GET
+            path: /increment
+            arguments: {}
+        source:
+          type: kapeta-dsl
+          value: |-
+            @GET('/increment')
+            getNextValue(  ):integer
+  target:
+    kind: kapeta/language-target-nodejs:3.4.0

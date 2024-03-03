@@ -1,0 +1,36 @@
+kind: kapeta/block-type-desktop:0.1.2
+metadata:
+  name: kapeta/sample-desktop-electron
+  visibility: private
+  title: Electron Desktop Sample
+  description: Shows how to build a desktop app with Electron
+spec:
+  entities:
+    types: []
+    source:
+      type: kaplang
+      version: 1.11.2
+      value: ""
+  providers: []
+  consumers:
+    - kind: kapeta/resource-type-rest-client:1.0.14
+      metadata:
+        name: test
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          getNext:
+            responseType:
+              type: integer
+            method: GET
+            path: /increment
+            arguments: {}
+        source:
+          type: kapeta-dsl
+          value: |-
+            @GET('/increment')
+            getNext(  ):integer
+  target:
+    kind: kapeta/language-target-react-ts:2.2.10

@@ -1,0 +1,22 @@
+kind: kapeta/block-type-service:1.3.5
+metadata:
+  name: kapeta/sample-docker-backend
+  visibility: private
+  title: Docker Backend Sample
+spec:
+  entities: {}
+  providers:
+    - kind: kapeta/resource-type-rest-api:1.0.14
+      metadata:
+        name: restapi
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods: {}
+        source:
+          type: kapeta-dsl
+          value: ""
+  consumers: []
+  target:
+    kind: kapeta/language-target-docker:0.1.0

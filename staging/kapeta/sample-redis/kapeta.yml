@@ -1,0 +1,75 @@
+kind: core/plan
+metadata:
+  name: kapeta/sample-redis
+  visibility: private
+  description: Showcases using Redis
+  structure: mono
+  title: Redis Sample
+spec:
+  blocks:
+    - block:
+        ref: kapeta://kapeta/sample-redis-node:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 588
+        top: 152
+      id: 97e069f5-bc05-4f21-940a-d0593972eadc
+      name: Redis Node
+    - block:
+        ref: kapeta://kapeta/sample-redis-java:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 598.48740795532
+        top: 370.97245853429183
+      id: 557ae0d2-b649-490b-b822-31a9a5dab91f
+      name: Redis Java
+    - block:
+        ref: kapeta://kapeta/sample-react:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1121.0646005430647
+        top: 203.4218115435516
+      id: b488de6c-070b-45e5-84c0-55397ff38cdb
+      name: Redis React
+  connections:
+    - provider:
+        resourceName: KeyValue
+        blockId: 557ae0d2-b649-490b-b822-31a9a5dab91f
+      consumer:
+        resourceName: Java
+        blockId: b488de6c-070b-45e5-84c0-55397ff38cdb
+      port:
+        name: rest
+        type: rest
+      mapping:
+        KeyValue::delete:
+          targetId: KeyValue::delete
+          type: EXACT
+        KeyValue::create:
+          targetId: KeyValue::create
+          type: EXACT
+        KeyValue::get:
+          targetId: KeyValue::get
+          type: EXACT
+    - provider:
+        resourceName: KeyValue
+        blockId: 97e069f5-bc05-4f21-940a-d0593972eadc
+      consumer:
+        resourceName: Node
+        blockId: b488de6c-070b-45e5-84c0-55397ff38cdb
+      port:
+        name: rest
+        type: rest
+      mapping:
+        KeyValue::delete:
+          targetId: KeyValue::delete
+          type: EXACT
+        KeyValue::create:
+          targetId: KeyValue::create
+          type: EXACT
+        KeyValue::get:
+          targetId: KeyValue::get
+          type: EXACT
