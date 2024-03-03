@@ -21,7 +21,7 @@ jobs:
 
       - name: Publish to Staging
         id: kapeta-registry-push
-        uses: kapetacom/core-registry-action@v4
+        uses: kapetacom/core-registry-action@v4.1
         with:
           credentials: ${{ secrets.KAPETA_TOKEN_STAGING }}
           staging: true
