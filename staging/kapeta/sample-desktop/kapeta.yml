@@ -15,7 +15,7 @@ spec:
         left: 900
         top: 205
       id: 11b72a67-b645-4825-947d-c428d8a14a06
-      name: Electron Sample
+      name: Desktop
     - block:
         ref: kapeta://kapeta/sample-desktop-backend:local
       dimensions:
@@ -24,7 +24,7 @@ spec:
         left: 440
         top: 229.5
       id: 1c2662ce-eef2-4f52-bb5d-f5b50559c921
-      name: Desktop Backend
+      name: Backend
   connections:
     - provider:
         resourceName: test

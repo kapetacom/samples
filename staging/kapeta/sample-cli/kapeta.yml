@@ -15,7 +15,7 @@ spec:
         left: 894
         top: 335
       id: 90e7faa2-64c3-4bb7-a553-756c1ac116e2
-      name: Node CLI
+      name: CLI
     - block:
         ref: kapeta://kapeta/sample-cli-backend:local
       dimensions:
@@ -24,7 +24,7 @@ spec:
         left: 458
         top: 216
       id: 5671d715-d132-4b09-9aae-c2ff2ab9f0f3
-      name: Sample Backend
+      name: Backend
     - block:
         ref: kapeta://kapeta/sample-cli-api:local
       dimensions:
@@ -33,7 +33,7 @@ spec:
         left: 801.5
         top: 75
       id: b7d6038a-ba61-4c79-aa96-76b91508503e
-      name: sample-cli-api
+      name: Gateway
   connections:
     - provider:
         resourceName: sample

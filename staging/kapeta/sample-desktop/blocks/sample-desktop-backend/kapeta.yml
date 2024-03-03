@@ -4,7 +4,23 @@ metadata:
   visibility: public
   title: Desktop Sample Backend
 spec:
-  entities: {}
+  entities:
+    types:
+      - type: dto
+        name: Result
+        properties:
+          next:
+            type: integer
+            secret: false
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.2
+      value: |-
+        type Result {
+            next: integer
+        }
   providers:
     - kind: kapeta/resource-type-rest-api:0.1.4
       metadata:
@@ -16,15 +32,16 @@ spec:
         methods:
           getNext:
             responseType:
-              type: integer
+              ref: Result
             method: GET
             path: /increment
             arguments: {}
         source:
-          type: kapeta-dsl
+          type: kaplang
+          version: 1.11.2
           value: |-
             @GET('/increment')
-            getNext(  ):integer
+            getNext(  ):Result
   consumers: []
   target:
     kind: kapeta://kapeta/language-target-nodejs:3.4.1

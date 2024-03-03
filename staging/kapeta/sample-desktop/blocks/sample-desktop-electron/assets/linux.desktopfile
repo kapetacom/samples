@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ElectronDesktopSample
+Comment=Shows how to build a desktop app with Electron
+Exec=ElectronDesktopSample.AppImage
+Icon=com.example.ElectronDesktopSample
+Keywords=
+StartupNotify=true
+Terminal=false
