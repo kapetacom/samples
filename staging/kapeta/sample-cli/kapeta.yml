@@ -4,7 +4,7 @@ metadata:
   visibility: public
   description: Shows an example of a command line application
   structure: mono
-  title: CLI Samples
+  title: CLI Sample
 spec:
   blocks:
     - block:
@@ -61,3 +61,4 @@ spec:
         getNextValue:
           targetId: getNextValue
           type: EXACT
+  configuration: {}
