@@ -1,4 +1,4 @@
-kind: kapeta/block-type-service:1.3.5
+kind: kapeta/block-type-service:0.0.2
 metadata:
   name: kapeta/sample-artifact-node
   visibility: public
