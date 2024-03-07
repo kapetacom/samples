@@ -179,4 +179,4 @@ spec:
                 submit( @Body event:Event ):void
             }
   target:
-    kind: kapeta://kapeta/language-target-react-ts:2.2.11
+    kind: kapeta://kapeta/language-target-react-ts:2.2.13

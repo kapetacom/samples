@@ -43,12 +43,13 @@ spec:
             path: /events
             arguments: {}
         source:
-          type: kapeta-dsl
+          type: kaplang
+          version: 1.11.2
           value: |-
             @GET("/events")
             getAll():Event[]
   consumers:
-    - kind: kapeta://kapeta/resource-type-rabbitmq-subscriber:1.2.0
+    - kind: kapeta://kapeta/resource-type-rabbitmq-subscriber:1.2.1
       metadata:
         name: events
       spec:
@@ -71,6 +72,6 @@ spec:
         port:
           type: amqp
   target:
-    kind: kapeta/language-target-go:0.3.4
+    kind: kapeta://kapeta/language-target-go:0.3.7
     options:
       basePackage: github.com/kapetacom/samples/rabbitmq/go-consumer

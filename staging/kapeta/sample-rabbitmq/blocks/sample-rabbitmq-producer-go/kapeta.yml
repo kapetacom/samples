@@ -28,7 +28,7 @@ spec:
             payload:string
         }
   providers:
-    - kind: kapeta://kapeta/resource-type-rabbitmq-publisher:1.2.0
+    - kind: kapeta://kapeta/resource-type-rabbitmq-publisher:1.2.1
       metadata:
         name: events
       spec:
@@ -84,6 +84,6 @@ spec:
             }
   consumers: []
   target:
-    kind: kapeta/language-target-go:0.3.4
+    kind: kapeta://kapeta/language-target-go:0.3.7
     options:
       basePackage: github.com/kapetacom/samples/rabbitmq/go-producer

@@ -25,8 +25,8 @@ func CreateMainEventsRouter(e *server.KapetaServer, cfg providers.ConfigProvider
 		e.POST("/events/submit", func(ctx echo.Context) error {
 			var err error
 
-			event := &entities.Event{}
-			if err = request.GetBody(ctx, &event); err != nil {
+			var event *entities.Event
+			if err = request.GetBody(ctx, event); err != nil {
 				return ctx.String(400, fmt.Sprintf("bad request, unable to unmarshal event %v", err))
 			}
 			return serviceInterface.Submit(ctx, event)

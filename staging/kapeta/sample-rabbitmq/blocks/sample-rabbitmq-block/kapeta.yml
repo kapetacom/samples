@@ -1,4 +1,4 @@
-kind: kapeta://kapeta/block-type-rabbitmq:1.2.0
+kind: kapeta://kapeta/block-type-rabbitmq:1.2.1
 metadata:
   name: kapeta/sample-rabbitmq-block
   visibility: public
@@ -29,7 +29,7 @@ spec:
         	payload: string
         }
   providers:
-    - kind: kapeta://kapeta/resource-type-rabbitmq-queue:1.2.0
+    - kind: kapeta://kapeta/resource-type-rabbitmq-queue:1.2.1
       metadata:
         name: events
       spec:
@@ -52,7 +52,7 @@ spec:
                 required: true
                 global: false
   consumers:
-    - kind: kapeta://kapeta/resource-type-rabbitmq-exchange:1.2.0
+    - kind: kapeta://kapeta/resource-type-rabbitmq-exchange:1.2.1
       metadata:
         name: go
       spec:
@@ -75,7 +75,7 @@ spec:
         port:
           type: amqp
         exchangeType: fanout
-    - kind: kapeta://kapeta/resource-type-rabbitmq-exchange:1.2.0
+    - kind: kapeta://kapeta/resource-type-rabbitmq-exchange:1.2.1
       metadata:
         name: java
       spec:
@@ -98,7 +98,7 @@ spec:
         port:
           type: amqp
         exchangeType: fanout
-    - kind: kapeta://kapeta/resource-type-rabbitmq-exchange:1.2.0
+    - kind: kapeta://kapeta/resource-type-rabbitmq-exchange:1.2.1
       metadata:
         name: node
       spec:

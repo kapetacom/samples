@@ -48,7 +48,7 @@ spec:
             @GET("/events")
             getAll():Event[]
   consumers:
-    - kind: kapeta://kapeta/resource-type-rabbitmq-subscriber:1.2.0
+    - kind: kapeta://kapeta/resource-type-rabbitmq-subscriber:1.2.1
       metadata:
         name: events
       spec:

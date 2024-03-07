@@ -4,12 +4,10 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const PAGES = require('./webpack.pages.js');
 
-const HotMiddlewareScript =
-    'webpack-hot-middleware/client?path=__webpack_hmr&timeout=20000&dynamicPublicPath=true&reload=true';
+const HotMiddlewareScript = 'webpack-hot-middleware/client?path=__webpack_hmr&timeout=20000&reload=true';
 
 const devMode = process.env.NODE_ENV === 'development';
 
@@ -46,7 +44,7 @@ const config = {
     output: {
         path: Path.join(__dirname, 'dist'),
         filename: '[name].[contenthash].bundle.js',
-        publicPath: '',
+        publicPath: '/dist/',
     },
     entry: entries,
     devtool: devMode ? 'inline-source-map' : false,
@@ -97,11 +95,6 @@ const config = {
 
 if (devMode) {
     config.plugins.unshift(new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin());
-    config.plugins.push(
-        new CopyWebpackPlugin({
-            patterns: [{ from: Path.resolve(__dirname, 'src/mocks/mockServiceWorker.js'), to: 'mockServiceWorker.js' }],
-        })
-    );
 } else {
     config.plugins.unshift(
         new MiniCssExtractPlugin({

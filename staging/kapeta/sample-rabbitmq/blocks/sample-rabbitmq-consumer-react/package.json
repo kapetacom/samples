@@ -78,6 +78,6 @@
         "msw": "^2.0.6"
     },
     "msw": {
-        "workerDirectory": "src/mocks"
+        "workerDirectory": "./public"
     }
 }

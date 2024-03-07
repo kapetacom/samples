@@ -9,89 +9,107 @@ assets:
     mode: merge
     checksum: 07e6c207d7b6daefd5c9a64d1b3c857296d00e79
     permissions: "644"
-    modified: 1709501127104
+    modified: 1709835791333
     merged: false
   - filename: Dockerfile
     mode: create-only
     checksum: 1992fd2c33e10f6bb8a84bfe0d101dcd43164c5c
     permissions: "644"
-    modified: 1709501127105
+    modified: 1709835791333
     merged: false
   - filename: README.md
     mode: create-only
     checksum: 52dce7a8b50c1f059277a69a639bfbfbe194fb3d
     permissions: "644"
-    modified: 1709501127105
+    modified: 1709835791334
     merged: false
   - filename: .devcontainer/devcontainer.json
     mode: merge
     checksum: ef0d226c80cd04a2ae48e791ce80fe4f5c10e3dd
     permissions: "644"
-    modified: 1709501127106
+    modified: 1709835791334
     merged: false
   - filename: generated/entities/Event.go
     mode: write-always
     checksum: c6dae3c53d9ca7ad2c1c269097353b116a89da68
     permissions: "644"
-    modified: 1709501127106
+    modified: 1709835791335
     merged: false
   - filename: .gitignore
     mode: create-only
     checksum: 1105900d8eb457f283a4d1bbf221d9b929a3cde4
     permissions: "644"
-    modified: 1709501127106
+    modified: 1709835791335
     merged: false
   - filename: go.mod
     mode: create-only
     checksum: 781379b2afa217e64e902c2c8c5f2681d6a8386d
     permissions: "644"
-    modified: 1709501127107
+    modified: 1709835780534
     merged: false
   - filename: kapeta.md
     mode: write-always
     checksum: 2cca72e3ec5e53d1fc00e600ee7d093e81963db9
     permissions: "644"
-    modified: 1709501127107
+    modified: 1709835791336
     merged: false
   - filename: main.go
     mode: create-only
     checksum: e70d2931cdbf34f142ca2ed99c2d2a9e22b443e3
     permissions: "644"
-    modified: 1709501127107
+    modified: 1709835791336
     merged: false
   - filename: generated/router.go
     mode: write-always
-    checksum: 0676968a173d7104424290ade980ab46a8141cb3
+    checksum: b2e75d670f44a0204c60c9647af9c723bb904681
     permissions: "644"
-    modified: 1709501127108
+    modified: 1709835791337
     merged: false
   - filename: scripts/start-dev.cmd
     mode: write-always
     checksum: 8cf729d2175daf5c4d675f17a165f4778fce9e4c
     permissions: "644"
-    modified: 1709501127108
+    modified: 1709835791337
     merged: false
   - filename: scripts/start-dev.sh
     mode: write-always
     checksum: 38c9baf7f23f6dc1341808804a8a2fbe156ccab1
     permissions: "755"
-    modified: 1709501127108
+    modified: 1709835791337
     merged: false
   - filename: scripts/start-prod.cmd
     mode: write-always
     checksum: d0a9e376c54b197e4e5e7c532916057559bf6e3b
     permissions: "644"
-    modified: 1709501127108
+    modified: 1709835791337
     merged: false
   - filename: scripts/start-prod.sh
     mode: write-always
     checksum: 3bf05d6e4e69e573169b607035b9a942e6b96693
     permissions: "755"
-    modified: 1709501127109
+    modified: 1709835791338
     merged: false
   - filename: generated/queues/events-consumer.go
     mode: write-always
     checksum: 34986aaa912b6858e4e584d234fbac54f5db7a8f
     permissions: "644"
-    modified: 1709501127109
+    modified: 1709835791338
+    merged: false
+  - filename: generated/rest_api/go_events_router.go
+    mode: write-always
+    checksum: 8c24c39d41dda3dcff00aca57e9984813e3a64d8
+    permissions: "644"
+    modified: 1709835791338
+    merged: false
+  - filename: pkg/services/go_events_handler.go
+    mode: create-only
+    checksum: 6a69443c6fe177eb98ccaeb72d0918eedeb8e98e
+    permissions: "644"
+    modified: 1709835791338
+    merged: false
+  - filename: generated/services/go_events_interface.go
+    mode: write-always
+    checksum: 617329dec1a2c0ad2f854bf2212c6468e11890a8
+    permissions: "644"
+    modified: 1709835791339
     merged: false
