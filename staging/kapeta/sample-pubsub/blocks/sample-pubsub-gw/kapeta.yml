@@ -1,0 +1,55 @@
+kind: kapeta/block-type-gateway-http:0.3.0
+metadata:
+  name: kapeta/sample-pubsub-gw
+  visibility: public
+  title: Pub/Sub gw
+  description: Google Pub/Sub gw
+spec:
+  entities:
+    types: []
+    source:
+      type: kaplang
+      version: 1.11.3
+      value: ""
+  providers: []
+  consumers:
+    - kind: kapeta/resource-type-rest-client:1.2.0
+      metadata:
+        name: restapi
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          send:
+            responseType:
+              type: void
+            method: GET
+            path: /send
+            arguments: {}
+        source:
+          type: kaplang
+          version: 1.11.2
+          value: |-
+            @GET("/send")
+            send(): void
+    - kind: kapeta/resource-type-rest-client:1.2.0
+      metadata:
+        name: gorestapi
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          send:
+            responseType:
+              type: void
+            method: GET
+            path: /send
+            arguments: {}
+        source:
+          type: kaplang
+          version: 1.11.2
+          value: |-
+            @GET("/send")
+            send(): void

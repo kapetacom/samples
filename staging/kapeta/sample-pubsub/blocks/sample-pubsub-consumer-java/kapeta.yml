@@ -1,0 +1,50 @@
+kind: kapeta/block-type-service:1.3.6
+metadata:
+  name: kapeta/sample-pubsub-consumer-java
+  visibility: public
+  title: Pub/Sub consumer java
+  description: Google Pub/Sub consumer java
+spec:
+  entities:
+    types:
+      - type: dto
+        name: Message
+        properties:
+          content:
+            type: string
+            secret: false
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.3
+      value: |-
+        type Message {
+        	content: string
+        }
+  providers: []
+  consumers:
+    - kind: kapeta/resource-type-pubsub-subscriber:1.0.0
+      spec:
+        port:
+          name: http
+          type: http
+        payloadType:
+          type: Message
+          structure:
+            type: dto
+            name: Message
+            properties:
+              content:
+                type: string
+                secret: false
+                required: true
+                global: false
+      metadata:
+        name: messages
+  target:
+    kind: kapeta/language-target-java-spring-boot:1.3.0
+    options:
+      basePackage: com.kapeta.sample.pubsub
+      groupId: com.kapeta.sample.pubsub
+      artifactId: consumer-java

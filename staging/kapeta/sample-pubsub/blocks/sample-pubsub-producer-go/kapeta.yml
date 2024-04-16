@@ -1,0 +1,68 @@
+kind: kapeta/block-type-service:1.3.6
+metadata:
+  name: kapeta/sample-pubsub-producer-go
+  visibility: public
+  title: Pub/Sub producer go
+  description: Google Pub/Sub producer go
+spec:
+  entities:
+    types:
+      - type: dto
+        name: Command
+        properties:
+          type:
+            type: string
+            secret: false
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.3
+      value: |-
+        type Command {
+            type: string
+        }
+  providers:
+    - kind: kapeta/resource-type-pubsub-publisher:1.0.0
+      metadata:
+        name: commands
+      spec:
+        port:
+          name: http
+          type: http
+        payloadType:
+          type: Command
+          structure:
+            type: dto
+            name: Command
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+    - kind: kapeta/resource-type-rest-api:0.2.0
+      metadata:
+        name: gorestapi
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          send:
+            responseType:
+              type: void
+            method: GET
+            path: /send
+            arguments: {}
+        source:
+          type: kaplang
+          version: 1.11.2
+          value: |-
+            @GET("/send")
+            send(): void
+  consumers: []
+  target:
+    kind: kapeta/language-target-go:0.5.1
+    options:
+      basePackage: kapeta/sample-pubsub-producer-go
