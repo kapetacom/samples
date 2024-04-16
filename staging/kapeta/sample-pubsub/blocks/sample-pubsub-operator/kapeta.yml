@@ -1,0 +1,117 @@
+kind: kapeta/block-type-pubsub:1.0.0
+metadata:
+  name: kapeta/sample-pubsub-operator
+  visibility: public
+  title: Pub/Sub operator
+  description: Pub/Sub operator
+spec:
+  entities:
+    types:
+      - type: dto
+        name: Command
+        properties:
+          type:
+            type: string
+            secret: false
+            required: true
+            global: false
+      - type: dto
+        name: Message
+        properties:
+          content:
+            type: string
+            secret: false
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.3
+      value: |-
+        type Command {
+        	type: string
+        }
+
+
+        type Message {
+        	content: string
+        }
+  providers:
+    - kind: kapeta/resource-type-pubsub-subscription:1.0.1
+      metadata:
+        name: pubsubsubscription
+      spec:
+        port:
+          name: http
+          type: http
+        payloadType:
+          type: Message
+          structure:
+            type: dto
+            name: Message
+            properties:
+              content:
+                type: string
+                secret: false
+                required: true
+                global: false
+        topic: message-topic
+        subscription: message-subscription
+    - kind: kapeta/resource-type-pubsub-subscription:1.0.1
+      metadata:
+        name: pubsubsubscription_1
+      spec:
+        port:
+          name: http
+          type: http
+        payloadType:
+          type: Command
+          structure:
+            type: dto
+            name: Command
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+        topic: command-topic
+        subscription: command-subscription
+  consumers:
+    - kind: kapeta/resource-type-pubsub-topic:1.0.1
+      spec:
+        port:
+          name: http
+          type: http
+        payloadType:
+          type: Message
+          structure:
+            type: dto
+            name: Message
+            properties:
+              content:
+                type: string
+                secret: false
+                required: true
+                global: false
+        topic: message-topic
+      metadata:
+        name: messages
+    - kind: kapeta/resource-type-pubsub-topic:1.0.1
+      spec:
+        port:
+          name: http
+          type: http
+        payloadType:
+          type: Command
+          structure:
+            type: dto
+            name: Command
+            properties:
+              type:
+                type: string
+                secret: false
+                required: true
+                global: false
+        topic: command-topic
+      metadata:
+        name: commands

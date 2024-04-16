@@ -1,0 +1,126 @@
+kind: core/plan
+metadata:
+  name: kapeta/sample-pubsub
+  visibility: public
+  description: Google Pub/Sub sample
+  structure: mono
+  title: Pub/Sub sample
+spec:
+  blocks:
+    - block:
+        ref: kapeta://kapeta/sample-pubsub-operator:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1269
+        top: 210
+      id: 64222014-4347-40d6-a7da-c02a69dadcf7
+      name: Pub/Sub operator
+    - block:
+        ref: kapeta://kapeta/sample-pubsub-producer-java:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 474
+        top: 104
+      id: 9b972ad1-a5c6-46a7-b26b-3b3f7d61f83a
+      name: Pub/Sub java producer
+    - block:
+        ref: kapeta://kapeta/sample-pubsub-consumer-java:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1759.5
+        top: 85
+      id: 5f7c35b6-7e90-40cb-a94f-14954413dbf6
+      name: Pub/Sub consumer java
+    - block:
+        ref: kapeta://kapeta/sample-pubsub-producer-go:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 485.75
+        top: 341.5
+      id: cf2e8a0d-89d2-45d2-9c4c-6cab8dec0fe7
+      name: Pub/Sub producer go
+    - block:
+        ref: kapeta://kapeta/sample-pubsub-consumer-go:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1760.75
+        top: 381.75
+      id: 518f29ca-f38c-4cb7-a00c-8129072ed67b
+      name: Pub/Sub consumer go
+    - block:
+        ref: kapeta://kapeta/sample-pubsub-gw:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 1713.375
+        top: 597.375
+      id: 8a6179c3-d183-4dc0-8a59-5165e51b0ff3
+      name: Pub/Sub gw
+  connections:
+    - provider:
+        resourceName: messages
+        blockId: 9b972ad1-a5c6-46a7-b26b-3b3f7d61f83a
+      consumer:
+        resourceName: messages
+        blockId: 64222014-4347-40d6-a7da-c02a69dadcf7
+      port:
+        name: http
+        type: http
+    - provider:
+        resourceName: pubsubsubscription
+        blockId: 64222014-4347-40d6-a7da-c02a69dadcf7
+      consumer:
+        resourceName: messages
+        blockId: 5f7c35b6-7e90-40cb-a94f-14954413dbf6
+      port:
+        name: http
+        type: http
+    - provider:
+        resourceName: commands
+        blockId: cf2e8a0d-89d2-45d2-9c4c-6cab8dec0fe7
+      consumer:
+        resourceName: commands
+        blockId: 64222014-4347-40d6-a7da-c02a69dadcf7
+      port:
+        name: http
+        type: http
+    - provider:
+        resourceName: pubsubsubscription_1
+        blockId: 64222014-4347-40d6-a7da-c02a69dadcf7
+      consumer:
+        resourceName: commands
+        blockId: 518f29ca-f38c-4cb7-a00c-8129072ed67b
+      port:
+        name: http
+        type: http
+    - provider:
+        resourceName: restapi
+        blockId: 9b972ad1-a5c6-46a7-b26b-3b3f7d61f83a
+      consumer:
+        resourceName: restapi
+        blockId: 8a6179c3-d183-4dc0-8a59-5165e51b0ff3
+      port:
+        name: rest
+        type: rest
+      mapping:
+        send:
+          targetId: send
+          type: EXACT
+    - provider:
+        resourceName: gorestapi
+        blockId: cf2e8a0d-89d2-45d2-9c4c-6cab8dec0fe7
+      consumer:
+        resourceName: gorestapi
+        blockId: 8a6179c3-d183-4dc0-8a59-5165e51b0ff3
+      port:
+        name: rest
+        type: rest
+      mapping:
+        send:
+          targetId: send
+          type: EXACT
