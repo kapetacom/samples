@@ -1,0 +1,44 @@
+kind: core/plan
+metadata:
+  name: kapeta/sample-file-config
+  visibility: private
+  description: Shows how to use a file as configuration value
+  structure: mono
+  title: File Configuration Sample
+spec:
+  blocks:
+    - block:
+        ref: kapeta://kapeta/sample-config-file-service:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 402
+        top: 322
+      id: 9806e5fc-27be-4e97-95a3-5585e0b8e5ba
+      name: Service
+    - block:
+        ref: kapeta://kapeta/sample-config-file-gw:local
+      dimensions:
+        height: -1
+        width: 150
+        left: 972
+        top: 286.5
+      id: ba400455-8662-4291-8120-77734e5fc2f3
+      name: Gateway
+  connections:
+    - provider:
+        resourceName: test
+        blockId: 9806e5fc-27be-4e97-95a3-5585e0b8e5ba
+      consumer:
+        resourceName: test
+        blockId: ba400455-8662-4291-8120-77734e5fc2f3
+      port:
+        name: rest
+        type: rest
+      mapping:
+        getTestContent:
+          targetId: getTestContent
+          type: EXACT
+        getSecretContent:
+          targetId: getSecretContent
+          type: EXACT
