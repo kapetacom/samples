@@ -1,0 +1,42 @@
+kind: kapeta://kapeta/block-type-gateway-http:0.3.0
+metadata:
+  name: kapeta/sample-config-file-gw
+  visibility: private
+spec:
+  entities:
+    types: []
+    source:
+      type: kaplang
+      version: 1.11.6
+      value: ""
+  providers: []
+  consumers:
+    - kind: kapeta://kapeta/resource-type-rest-client:0.3.0
+      metadata:
+        name: test
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          getSecretContent:
+            responseType:
+              type: string
+            method: GET
+            path: /config/secret
+            arguments: {}
+          getTestContent:
+            responseType:
+              type: string
+            method: GET
+            path: /config/test
+            arguments: {}
+        source:
+          type: kaplang
+          version: 1.11.2
+          value: |
+            @GET('/config/test')
+            getTestContent(  ):string
+
+            @GET('/config/secret')
+            getSecretContent(  ):string

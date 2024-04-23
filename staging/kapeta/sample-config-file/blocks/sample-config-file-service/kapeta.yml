@@ -1,0 +1,66 @@
+kind: kapeta://kapeta/block-type-service:0.0.2
+metadata:
+  name: kapeta/sample-config-file-service
+  visibility: private
+  title: Sample Service
+  description: Service using config file value
+spec:
+  entities: {}
+  providers:
+    - kind: kapeta://kapeta/resource-type-rest-api:0.3.0
+      metadata:
+        name: test
+      spec:
+        port:
+          name: rest
+          type: rest
+        methods:
+          getSecretContent:
+            responseType:
+              type: string
+            method: GET
+            path: /config/secret
+            arguments: {}
+          getTestContent:
+            responseType:
+              type: string
+            method: GET
+            path: /config/test
+            arguments: {}
+        source:
+          type: kaplang
+          version: 1.11.2
+          value: |
+            @GET('/config/test')
+            getTestContent(  ):string
+
+            @GET('/config/secret')
+            getSecretContent(  ):string
+  consumers: []
+  target:
+    kind: kapeta://kapeta/language-target-nodejs:3.5.2
+  configuration:
+    types:
+      - type: dto
+        name: Some
+        properties:
+          test:
+            type: file
+            secret: false
+            required: true
+            global: false
+          secretTest:
+            type: file
+            secret: true
+            required: true
+            global: false
+    source:
+      type: kaplang
+      version: 1.11.6
+      value: |-
+        type Some {
+            test:file
+
+            @secret
+            secretTest:file
+        }
